@@ -1,5 +1,4 @@
 -e .
-dulwich --global-option=="--pure"
 dvc
 dvc[gdrive]
 sklearn
