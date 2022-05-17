@@ -1,7 +1,5 @@
 -e .
-Cython
 numpy
-dulwich --global-option=="--pure"
 dvc
 dvc[gdrive]
 sklearn
