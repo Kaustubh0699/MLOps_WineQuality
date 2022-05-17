@@ -55,7 +55,7 @@ def index():
 
         except Exception as e:
             # print(e)
-            error = {"error": e}
+            error = {"error": "Oops! Something went wrong! Try Again."}
             return render_template('404.html', error=error)
 
     else:
