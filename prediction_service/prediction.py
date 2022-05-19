@@ -87,14 +87,14 @@ def api_response(dict_request):
             response = {"response": response}
             return response
     except NotInRange as e:
-        response = {"expectedRange": get_schema(), "error": str(e) }
+        response = {"expectedRange": get_schema(), "response": str(e) }
         return response
 
     except NotInCols as e:
-        response = {"expectedCols": get_schema().keys(), "error": str(e) }
+        response = {"expectedCols": get_schema().keys(), "response": str(e) }
         return response
 
     except Exception as e:
-        response = {"error": str(e) }
+        response = {"response": str(e) }
         return response  
 
