@@ -23,10 +23,12 @@ jobs:
     - name: commit files
       env:
         TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PWD: ${{ secrets.PWD }}
       run: |
         git config --local user.email "kaustubhgoyal118@gmail.com"
         git config --local user.name "Kaustubh0699"
-        git remote set-url origin https://Kaustubh0699:Bt65Mn@gyl06@github.com/username/repository.git
+        git remote set-url origin https://$USERNAME:$PWD@github.com/username/repository.git
         git add runs.json
         git commit -m "update runs.json" -a
         git push origin retrain_test     
