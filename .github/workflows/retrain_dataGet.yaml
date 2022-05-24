@@ -2,8 +2,6 @@ name: retain_json_test
 
 on: [workflow_dispatch]
 
-permissions: read-all|write-all
-
 jobs:
   build:
 
