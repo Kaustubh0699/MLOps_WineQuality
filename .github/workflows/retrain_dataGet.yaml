@@ -1,6 +1,6 @@
 name: retain_json_test
 
-on: workflow_dispatch
+on: [workflow_dispatch]
 
 jobs:
   build:
@@ -29,5 +29,5 @@ jobs:
     - name: push changes
       uses: ad-m/github-push-action@v0.6.0
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.TOKEN_GITHUB }}
         branch: retrain_test  
