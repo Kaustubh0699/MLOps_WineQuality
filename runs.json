@@ -1,1 +1,6 @@
-{}
+{
+   "Test": {
+      "Run_name": "Trial",
+      "Retrain_TBName": "XYZ"
+   }
+}
