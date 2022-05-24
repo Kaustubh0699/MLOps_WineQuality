@@ -1,6 +1,10 @@
 name: Python application
 
 on:
+  workflow_run:
+    workflows: ["retain_json_test"]
+    types:
+      - completed
   push:
     branches:
     - retrain_test
