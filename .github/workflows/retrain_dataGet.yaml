@@ -30,7 +30,7 @@ jobs:
         echo "https://$TOKEN_GITHUB@github.com/Kaustubh0699/MLOps_WineQuality.git"
         git add runs.json
         git commit -m "update runs.json" -a
-        git push      
+        git push origin retrain_test     
     # - name: push changes
     #   uses: ad-m/github-push-action@v0.6.0
     #   with:
