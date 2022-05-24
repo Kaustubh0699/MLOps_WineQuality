@@ -26,7 +26,7 @@ jobs:
       run: |
         git config --local user.email "kaustubhgoyal118@gmail.com"
         git config --local user.name "Kaustubh0699"
-        git remote set-url origin Kaustubh0699:$TOKEN_GITHUB@github.com:Kaustubh0699/MLOps_WineQuality.git
+        git remote set-url origin "Kaustubh0699:$TOKEN_GITHUB@github.com:Kaustubh0699/MLOps_WineQuality.git"
         git add runs.json
         git commit -m "update runs.json" -a
         git push      
