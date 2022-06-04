@@ -36,7 +36,7 @@ jobs:
         git config --local user.email "kaustubhgoyal118@gmail.com"
         git config --local user.name "Kaustubh0699"
         git remote set-url origin https://$USERNAME:$TOKEN_GITHUB@github.com/Kaustubh0699/MLOps_WineQuality.git
-        git add runs.json
-        git commit -m "update runs.json" -a
+        git add .
+        git commit -m "Retrained the Model" -a
         git push origin retrain_test
     
