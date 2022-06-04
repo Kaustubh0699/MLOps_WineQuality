@@ -39,3 +39,8 @@ mlflow_config:
   run_name: mlops
   registered_model_name: ElasticNetWineModel
   remote_server_uri: http://localhost:1234
+
+
+retrain:
+  train_data: https://drive.google.com/file/d/1aXiJUYjKxxVjAGhgIbKgslqb2yU9L2Wv/view?usp=sharing
+  test_data: https://drive.google.com/file/d/1C6sNjEwWrz77BC9xFWN_2VCVa88w42r2/view?usp=sharing

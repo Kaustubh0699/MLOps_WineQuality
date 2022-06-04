@@ -24,8 +24,10 @@ def train_and_evaluate(config_path):
     # Reading Pramas From Config File
     print("Start")
     config = read_params(config_path)
-    train_data_path = config['split_data']['train_path']
-    test_data_path = config['split_data']['test_path']
+    train_data_path = config['retrain']['train_data']
+    train_data_path='https://drive.google.com/uc?id=' + train_data_path.split('/')[-2]
+    test_data_path = config['retrain']['test_data']
+    test_data_path='https://drive.google.com/uc?id=' + test_data_path.split('/')[-2]
     random_state = config['base']['random_state']
     model_dir = config['model_dir']
 
@@ -33,10 +35,14 @@ def train_and_evaluate(config_path):
     l1_ratio = config['estimators']['ElasticNet']['params']['l1_ratio']
     print("Start2")
     target = config['base']['target_col']
-
+    
     # Reading Test, Train Data
     train = pd.read_csv(train_data_path)
     test = pd.read_csv(test_data_path)
+    print("Data Read from URL")
+    
+    # Drop Timestamp Column
+    train.drop(['Timestamp'],axis = 1,inplace = True)
 
     train_y = train[target]
     test_y = test[target]
@@ -45,7 +51,6 @@ def train_and_evaluate(config_path):
     test_x = test.drop(target, axis=1)
     print("Start3")
     ########################### MLFLOW CODE ###########################
-    
     mlflow_config = config['mlflow_config']
     remote_server_uri = mlflow_config['remote_server_uri']
 

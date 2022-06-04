@@ -36,14 +36,14 @@ stages:
     cmd: python src/train_and_evaluate.py --config=params.yaml
     deps:
     - path: data/processed/test_winequality.csv
-      md5: 01718da3bd6e206060ed00667ca1a389
-      size: 18831
+      md5: 0fda35608f5db178f88daeebf7521fd4
+      size: 12113
     - path: data/processed/train_winequality.csv
-      md5: 4bccf4d668cdc60115de42ba74d416ab
-      size: 74913
+      md5: b970711ce25033fde1a1e717d5f05579
+      size: 47947
     - path: src/train_and_evaluate.py
-      md5: 8bbeba6d35e408e73cb0b36bf3b63339
-      size: 2852
+      md5: f5e6d49bf3e728c4dc08853a41f08646
+      size: 2958
     params:
       params.yaml:
         estimators.ElasticNet.params.alpha: 0.7
@@ -52,5 +52,5 @@ stages:
     cmd: python src/log_production_model.py --config=params.yaml
     deps:
     - path: src/log_production_model.py
-      md5: d6e2753e3332db5198d31518b02a312a
-      size: 1781
+      md5: eed2356c861cc719b9497457b36af6eb
+      size: 1783

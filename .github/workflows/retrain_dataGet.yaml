@@ -17,9 +17,16 @@ jobs:
     - name: install python packages
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt  
-    - name: execute py script # run add_run_details.py to get the latest data
-      run: python add_run_details.py    
+        pip install -r requirements.txt
+    - name: START MLFLOW Server
+      run: |
+        nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host localhost -p 1234 &
+        echo "MLFLOW SERVER STARTED"
+    -name: RETRAIN AND LOG USING DATA FROM REMOTE LOCATION
+      run: |
+        python src/retrain.py --config=params.yaml
+        python src/log_production_model.py --config=params.yaml
+        python add_run_details.py
     - name: commit files
       env:
         TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
@@ -32,12 +39,4 @@ jobs:
         git add runs.json
         git commit -m "update runs.json" -a
         git push origin retrain_test
-    - name: START MLFLOW Server
-      run: |
-        nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host localhost -p 1234 &
-        echo "SERVER STARTED"
-      env:
-        P_NAME: $(pgrep wget)
-    - name: STOP MLFLOW Server
-      run: |
-        kill $P_NAME
+    
