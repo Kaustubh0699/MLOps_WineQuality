@@ -34,7 +34,7 @@ jobs:
         git push origin retrain_test
     - name: START MLFLOW Server
       run: |
-        nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host localhost -p 1234
+        nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host localhost -p 1234 &
         echo "SERVER STARTED"
       env:
         P_NAME: $(pgrep wget)
