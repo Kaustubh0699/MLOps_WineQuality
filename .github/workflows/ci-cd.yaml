@@ -7,10 +7,10 @@ on:
       - completed
   push:
     branches:
-    - retrain_test
+    - main
   pull_request:
     branches:
-    - retrain_test
+    - main
     
 jobs:
   build:
