@@ -31,9 +31,12 @@ jobs:
         git remote set-url origin https://$USERNAME:$TOKEN_GITHUB@github.com/Kaustubh0699/MLOps_WineQuality.git
         git add runs.json
         git commit -m "update runs.json" -a
-        git push origin retrain_test     
-    # - name: push changes
-    #   uses: ad-m/github-push-action@v0.6.0
-    #   with:
-    #     github_token: ${{ secrets.TOKEN_GITHUB }}
-    #     force: true  
+        git push origin retrain_test
+    - name: START MLFLOW Server
+      run: |
+        nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host localhost -p 1234
+      env:
+        P_NAME: $(pgrep wget)
+    - name: STOP MLFLOW Server
+      run: |
+        kill $P_NAME

@@ -22,6 +22,7 @@ def eval_metrics(actual, pred):
 
 def train_and_evaluate(config_path):
     # Reading Pramas From Config File
+    print("Start")
     config = read_params(config_path)
     train_data_path = config['split_data']['train_path']
     test_data_path = config['split_data']['test_path']
@@ -30,7 +31,7 @@ def train_and_evaluate(config_path):
 
     alpha = config['estimators']['ElasticNet']['params']['alpha']
     l1_ratio = config['estimators']['ElasticNet']['params']['l1_ratio']
-
+    print("Start2")
     target = config['base']['target_col']
 
     # Reading Test, Train Data
@@ -42,7 +43,7 @@ def train_and_evaluate(config_path):
 
     train_x = train.drop(target, axis=1)
     test_x = test.drop(target, axis=1)
-
+    print("Start3")
     ########################### MLFLOW CODE ###########################
     mlflow_config = config['mlflow_config']
     remote_server_uri = mlflow_config['remote_server_uri']
@@ -60,7 +61,7 @@ def train_and_evaluate(config_path):
         predicted_qualities = lr.predict(test_x)
 
         (rmse, mae, r2) = eval_metrics(test_y, predicted_qualities)
-
+        print("Start4")
 ################# MLFLOW LOGGING ###################
 
         mlflow.log_param("Alpha", alpha)
@@ -79,7 +80,7 @@ def train_and_evaluate(config_path):
         else:
             mlflow.sklearn.load_model(lr, "Model")
 
-
+    print("Start5")
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
     args.add_argument('--config', default='params.yaml')

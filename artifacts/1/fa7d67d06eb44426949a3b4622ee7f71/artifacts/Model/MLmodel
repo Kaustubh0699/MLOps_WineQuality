@@ -9,8 +9,8 @@ flavors:
     code: null
     pickled_model: model.pkl
     serialization_format: cloudpickle
-    sklearn_version: 1.1.0
+    sklearn_version: 0.23.2
 mlflow_version: 1.26.0
-model_uuid: c1417550a9334171a8a456e946869f54
-run_id: f1b52bfc1d8340a9bde97cad7288a1c5
-utc_time_created: '2022-05-19 16:21:58.787877'
+model_uuid: cea84d6b4c834c5da0057e5e24d83ee4
+run_id: fa7d67d06eb44426949a3b4622ee7f71
+utc_time_created: '2022-06-04 19:12:45.505125'
