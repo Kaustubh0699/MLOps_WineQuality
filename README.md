@@ -1,3 +1,9 @@
+End to End MLOPs pipeline using MLflow, DVC, Python , Flask-
+Dataset Used - Wine Quality Prediction Dataset (https://www.kaggle.com/datasets/rajyellow46/wine-quality)
+Reference - https://www.youtube.com/playlist?list=PLZoTAELRMXVOk1pRcOCaG5xtXxgMalpIe
+
+Also implemented the Retraining Pipeline example in retrain_test branch where my data is kept in remote GDrive folder
+
 create env 
 
 ```bash
