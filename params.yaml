@@ -42,5 +42,5 @@ mlflow_config:
 
 
 retrain:
-  train_data: https://drive.google.com/file/d/1aXiJUYjKxxVjAGhgIbKgslqb2yU9L2Wv/view?usp=sharing
-  test_data: https://drive.google.com/file/d/1C6sNjEwWrz77BC9xFWN_2VCVa88w42r2/view?usp=sharing
+  train_data: **GDrive Folder Public URL for Training**
+  test_data: **GDrive Folder Public URL for Testing**
